@@ -1,29 +1,29 @@
 {
 	"pizza": [
 		{
-                 	"name": "Veggie Supreme",
-                	"ingredients": ["Onion","Capsicum","Mushroom","Black Olives","Sweet Corn"],
-                 	"price": "545"
-                },
-                {
-                	"name": "Veg Exotica",
-               	 	"ingredients": ["Onion","Capsicum","Mushroom","Black Olives","Jalapenos"],
-                	"price": "545"
-                }
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â 	"name": "Veggie Supreme",
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â 	"ingredients": ["Onion","Capsicum","Mushroom","Black Olives","Sweet Corn"],
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â 	"price": "545"
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â },
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â {
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â 	"name": "Veg Exotica",
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â 	Â 	"ingredients": ["Onion","Capsicum","Mushroom","Black Olives","Jalapenos"],
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â 	"price": "545"
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â },
 		{
-                	"name": "Paneer Exotica",
-               	 	"ingredients": ["Onion","Capsicum","Mushroom","Black Olives","Paneer"],
-                	"price": "575"
-                }
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â 	"name": "Paneer Exotica",
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â 	Â 	"ingredients": ["Onion","Capsicum","Mushroom","Black Olives","Paneer"],
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â 	"price": "575"
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â },
 		{
-                 	"name": "Chicken Supreme",
-                	"ingredients": ["Onion","Capsicum","Mushroom","Black Olives","Chicken Tikka"],
-                 	"price": "625"
-                },
-                {
-                	"name": "Chicken Exotica",
-               	 	"ingredients": ["Onion","Capsicum","Mushroom","Black Olives","Smoked Chicken"],
-                	"price": "625"
-                }
-                ]
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â 	"name": "Chicken Supreme",
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â 	"ingredients": ["Onion","Capsicum","Mushroom","Black Olives","Chicken Tikka"],
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â 	"price": "625"
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â },
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â {
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â 	"name": "Chicken Exotica",
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â 	Â 	"ingredients": ["Onion","Capsicum","Mushroom","Black Olives","Smoked Chicken"],
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â 	"price": "625"
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â }
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â  ]
 }
