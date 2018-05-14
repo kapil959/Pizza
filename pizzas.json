@@ -1,11 +1,11 @@
 {
 	"pizza": [
-		{
+	{
 		"name": "Veggie Supreme",
 		"ingredients": ["Onion","Capsicum","Mushroom","Black Olives","Sweet Corn"],
 		"price": "545"
-                },
-                {
+	},
+	{
 		"name": "Veg Exotica",
 		"ingredients": ["Onion","Capsicum","Mushroom","Black Olives","Jalapenos"],
 		"price": "545"
