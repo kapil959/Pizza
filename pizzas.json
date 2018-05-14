@@ -1,29 +1,28 @@
 {
-	"pizza": [
-	{
-		"name": "Veggie Supreme",
-		"ingredients": ["Onion","Capsicum","Mushroom","Black Olives","Sweet Corn"],
-		"price": "545"
-	},
-	{
-		"name": "Veg Exotica",
-		"ingredients": ["Onion","Capsicum","Mushroom","Black Olives","Jalapenos"],
-		"price": "545"
-                },
+	"pizza": [{
+			"name": "Veggie Supreme",
+			"ingredients": ["Onion", "Capsicum", "Mushroom", "Black Olives", "Sweet Corn"],
+			"price": "545"
+		},
 		{
-		"name": "Paneer Exotica",
-		"ingredients": ["Onion","Capsicum","Mushroom","Black Olives","Paneer"],
-		"price": "575"
-                },
+			"name": "Veg Exotica",
+			"ingredients": ["Onion", "Capsicum", "Mushroom", "Black Olives", "Jalapenos"],
+			"price": "545"
+		},
 		{
-		"name": "Chicken Supreme",
-		"ingredients": ["Onion","Capsicum","Mushroom","Black Olives","Chicken Tikka"],
-		"price": "625"
-                },
-                {
-		"name": "Chicken Exotica",
-		"ingredients": ["Onion","Capsicum","Mushroom","Black Olives","Smoked Chicken"],
-		"price": "625"
-                }
-                ]
+			"name": "Paneer Exotica",
+			"ingredients": ["Onion", "Capsicum", "Mushroom", "Black Olives", "Paneer"],
+			"price": "575"
+		},
+		{
+			"name": "Chicken Supreme",
+			"ingredients": ["Onion", "Capsicum", "Mushroom", "Black Olives", "Chicken Tikka"],
+			"price": "625"
+		},
+		{
+			"name": "Chicken Exotica",
+			"ingredients": ["Onion", "Capsicum", "Mushroom", "Black Olives", "Smoked Chicken"],
+			"price": "625"
+		}
+	]
 }
