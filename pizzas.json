@@ -3,7 +3,7 @@
 			"name": "Veggie Supreme",
 			"ingredients": ["Onion", "Capsicum", "Mushroom", "Black Olives", "Sweet Corn"],
 			"price": "545",
-			"image": "https://raw.githubusercontent.com/kapil959/Pizza/master/jalpeno.jpg"
+			"image": "https://raw.githubusercontent.com/kapil959/Pizza/master/olive.jpg"
 		},
 		{
 			"name": "Veg Exotica",
@@ -15,13 +15,13 @@
 			"name": "Paneer Exotica",
 			"ingredients": ["Red Capsicum", "Capsicum", "Mushroom", "Black Olives", "Paneer"],
 			"price": "575",
-			"image": "https://raw.githubusercontent.com/kapil959/Pizza/master/jalpeno.jpg"
+			"image": "https://raw.githubusercontent.com/kapil959/Pizza/master/olive.jpg"
 		},
 		{
 			"name": "Chicken Supreme",
 			"ingredients": ["Chicken Pepperoni", "Capsicum", "Mushroom", "Black Olives", "Chicken Tikka"],
 			"price": "625",
-			"image": "https://raw.githubusercontent.com/kapil959/Pizza/master/olive.jpg"
+			"image": "https://raw.githubusercontent.com/kapil959/Pizza/master/jalpeno.jpg"
 		},
 		{
 			"name": "Chicken Exotica",
