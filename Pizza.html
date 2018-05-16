@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head >
+	  <title>Pizza Order</title>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	  <script>
+		var pizza;
+		var pizzaCheckCount;
+		function loadPizzas(){
+			document.getElementById("startBtn").onclick = function() {
+     								return false;
+   					}
+			document.getElementById("startBtn").style.backgroundColor = "lightgrey";
+			
+
+			var xmlhttp = new XMLHttpRequest();
+			
+			xmlhttp.open("GET", "https://raw.githubusercontent.com/kapil959/Pizza/master/pizzas.json", true);
+			
+			xmlhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					
+					var myObj = JSON.parse(this.responseText);
+					
+					console.log(myObj.pizza);
+					
+					document.getElementById('pizzasList').style.display='block';
+					pizzaCheckCount = new Array(myObj.pizza.length);
+					for(i=0;i<myObj.pizza.length;i++){
+
+						document.getElementById('pizzasList').innerHTML +=
+						"<span style='color:black'; id='pizza_"+(i+1)+"'><br>"+
+						"<span>"+myObj.pizza[i].name+"</span><br>"+
+						"<span class='ingredients'>"+myObj.pizza[i].ingredients+"</span>"+"<br><br>"+
+						"<img class='image' src="+myObj.pizza[i].image+" style=\"padding-right:5em\">"+
+						"Rs. "+myObj.pizza[i].price+
+						"<span class=\"glyphicon glyphicon-minus\" id='minus_"+(i+1)+"' onclick='addMinus(\"m\","+(i+1)+")' style=\"padding-left:5em\"></span> "+
+						"<input type='textbox' id='count_"+(i+1)+"' class='textbox' value=0></input> "+
+						"<span class=\"glyphicon glyphicon-plus\" id='plus_"+(i+1)+"' onclick='addMinus(\"p\","+(i+1)+")'></span>"
+						+"<br><br></span>";
+						pizzaCheckCount[i] = 0;
+					}
+					document.getElementById('pizzasList').innerHTML += "<br><a class='btn btn-info checkoutButton' style='display:none;' role='button' id='checkout' onclick='checkoutPizza()'>Checkout</a>";
+					pizza = myObj.pizza;
+				}
+			};
+			xmlhttp.send();
+		}
+		function addMinus(action, c) {
+			var count = parseInt(document.getElementById('count_'+c).value);
+			if(action == 'p') {
+				count++;
+			} else if(count != 0) {
+				count--;
+			}
+			document.getElementById('count_'+c).value = count;
+			pizzaCheckCount[c-1] = count;
+			if(count>0) {
+				document.getElementById("checkout").style.display='block';
+			}else{
+				var flag = 0;
+				for(var i=0; i<pizzaCheckCount.length; i++) {
+					if(pizzaCheckCount[i] >0) {
+						flag = 1;
+					}
+				}
+				if(flag == 0) {
+					document.getElementById("checkout").style.display='none';
+				}
+				
+			}
+		}
+		function checkoutPizza() {
+			$(window).scrollTop(0);
+			var orderCount = 0;
+			var totalOrderAmount = 0;
+			document.getElementById('confirmOrder').innerHTML ="<span>Your Order details -</span><br><br>"
+			for(var i=0; i<pizza.length; i++) {
+				if(pizzaCheckCount[i]>0) {
+					orderCount+= pizzaCheckCount[i];
+					totalOrderAmount += pizza[i].price*pizzaCheckCount[i]
+					document.getElementById('confirmOrder').innerHTML +=
+					"<span>"+pizza[i].name+": "+pizzaCheckCount[i]+' X '+pizza[i].price+"</span><br><br>";
+				}
+			//document.getElementById('count_'+(i+1)).style.display = 'none';
+			document.getElementById('plus_'+(i+1)).style.pointerEvents = 'none';
+			document.getElementById('minus_'+(i+1)).style.pointerEvents = 'none';
+			}
+			document.getElementById('confirmOrder').style.display = 'block';
+			document.getElementById('backButton').style.display = 'block';
+			document.getElementById('confirmOrder').innerHTML += "<span class='totalText'>Total Amount = " + totalOrderAmount + " Rs</span>"+
+				"<br><br><a class='btn btn-success confirmButton' role='button' id='success' onclick='userInfo()'>Confirm </a>";
+					document.getElementById("checkout").style.display='none';
+		}
+		function userInfo(){
+			document.getElementById('confirmOrder').style.display = 'none';
+			document.getElementById('backButton').style.display = 'none';
+			document.getElementById('userInfoDiv').style.display = 'block';
+		}
+		function showSuccess(){
+			var name = document.getElementById('name').value;
+			var number = document.getElementById('number').value;
+			var flatNumber = document.getElementById('flatNumber').value;
+			var society = document.getElementById('society').value;
+			var city = document.getElementById('city').value;
+			var checkFlag= false;
+			if(name==""){
+				document.getElementById('error').innerHTML = "Please enter Name";
+				document.getElementById('error').style.display="block";
+			}
+			else if(number == ""){
+				document.getElementById('error').innerHTML = "Please enter Number";
+				document.getElementById('error').style.display="block";	
+			}
+			else if(flatNumber == ""){
+				document.getElementById('error').innerHTML = "Please enter Flat number";
+				document.getElementById('error').style.display="block";
+			}
+			else if(society == ""){
+				document.getElementById('error').innerHTML = "Please enter Society/locality";
+				document.getElementById('error').style.display="block";
+			}
+			else if(city == ""){
+				document.getElementById('error').innerHTML = "Please enter city";
+				document.getElementById('error').style.display="block";
+			}
+			else{
+				document.getElementById('container').innerHTML ="<div class='successMessage'><span>Congratulations! Your order has been placed successfully. Order-Id : 63543</span><br>"+
+				"<span>Your order will be delivered in  25 minutes</span></div>";
+				checkFlag= true;
+			}
+			if(checkFlag==false){
+				$(window).scrollTop(0);
+			}
+		}
+		function goBack(){
+			for(var i=0; i<pizza.length; i++) {
+				document.getElementById('plus_'+(i+1)).style.pointerEvents = 'auto';
+				document.getElementById('minus_'+(i+1)).style.pointerEvents = 'auto';
+			}
+			document.getElementById("checkout").style.display='block';
+			document.getElementById('backButton').style.display = 'none';
+			document.getElementById('confirmOrder').style.display = 'none';
+		}
+	  </script>
+	</head>
+
+
+	<body background="https://raw.githubusercontent.com/kapil959/Pizza/master/pizza1.jpeg" style="background-color:#FFE4C4";>
+
+		<div class="jumbotron text-center newJumbo" >
+		  <h1>Welcome To Pizza Home</h1>
+		</div>
+		  
+		<div class="container" id="container">
+			<div class="col-xs-2">
+				
+			<div id="startBtn" class="orderCircle" value="Order Here" onclick="loadPizzas();">Click here to Order</div>
+			</div>
+			<div class="col-xs-6" id="pizzasList" style="display:none;background-color:#FAEBD7;color:white!important;font-weight:bold;font-size:16px;";>
+			</div>
+			
+			<div>
+			<div style="display:none;" id="backButton"><button type="button" class="btn btn-warning backButton" onclick="goBack();">Go back to Menu</button></div>
+			<div id="confirmOrder" class="col-xs-3 confirmDiv" style="display:none;"></div>
+			<div id="userInfoDiv" class="col-xs-3 confirmDiv" style="display:none;">
+				<span id="error" style="display:none;color:red;"></span><br>
+				<span style="font-weight:normal;"><span style="font-weight:bold;"> Please fill following information.</span><br>
+				<span class="mandatory">All Fields are mandatory*</span><br><br>
+				<span >Full Name: </span><input type="text" style="color:black;" id="name"></input><br>
+				Contact Number: <input type="text" style="color:black;" id="number"></input><br>
+				<span>Address:</span><br>
+				<span>House/Flat No: <input type="text" style="color:black;" id="flatNumber"></input> Society/locality: <input type="text" style="color:black;" id="society"></input><br>
+				<span>City: <br></span><input type="text" style="color:black;" id="city"></input><br>
+				<br><span class="mode">Payment Mode: Cash On Delivery</span><br><br>
+				<a class='btn btn-success confirmButton' role='button' onclick='showSuccess()'>Order</a>
+				</span>
+
+			</div>
+			</div>
+			<div class="col-xs-1" >
+				
+			</div>
+		</div>
+
+
+<style>
+.mandatory{
+    font-size: 12px;
+    color: black;
+}
+.backButton{
+
+    margin-left: 50px;
+    margin-bottom: 20px;
+    width: 150px;
+
+}
+.successMessage{
+
+    
+    color: darkgreen;
+    border: 2px solid;
+    border-radius:  10px;
+    background-color: lightgreen;
+font-weight:bold;
+	font-size:24px;
+	padding:5px;
+
+
+}
+.mode{
+
+    color: black;
+    font-weight: bold;
+
+}
+.ingredients{
+
+    font-weight:  normal;
+    font-style:  italic;
+    font-size: 14px;
+
+}
+.confirmDiv{
+	color:white!important;
+	font-weight:bold;font-size:16px;
+	padding-top:30px;
+	background-color: darkgrey;
+	border: 2px solid;
+	border-radius: 10px;
+	padding-bottom:20px;
+	margin-left:50px;
+}
+.confirmButton{
+
+    width: 230px;
+    font-size: 20px;
+    margin-left:10px;
+
+}
+.totalText{
+	border:  2px solid;
+    border-radius: 10px;
+    padding: 5px;
+    font-size: 20px;
+
+}
+.checkoutButton{
+	margin-bottom: 20px; 
+	height: 40px; 
+	font-size: 18px;
+}
+.textbox{
+	color: black;
+	width:27px;
+	text-align:center;
+}
+.image{
+	height:90px;
+}
+.orderCircle {
+  border-radius: 50%;
+  width: 160px;
+  height: 130px;
+  padding: 8px;
+  background: yellow;
+  border: 2px solid #666;
+  color: #666;
+  text-align: center;
+  cursor:pointer;
+  margin-left: -60px;
+  font: 32px Arial, sans-serif;
+}
+.newJumbo{
+padding-bottom:0px !important;
+background-color:orange !important;
+border: 1px solid orange;
+opacity: 0.6;
+filter: alpha(opacity=60);
+}
+</style>
+	</body>
+</html>
