@@ -10,6 +10,7 @@ Components/Files used in this Application -
 
 Application functioning-
 
+Download the pizza folder from the repository path.
 1. Run Pizza.html file on your browser.
 2. Click on 'Order here to Click' button.
 3. 'Order here to Click' button will be disabled and Pizza list will be loaded. Each pizza item will have '+' & '-' button. You can increase the count depends on the quantity you want.
@@ -26,6 +27,6 @@ Edit your order and click on 'checkout' button again.
 After clicking over confirm button, order summary section will hide and user information section will be visible.
 8. Enter the values in required fields. Basic validation has been applied in all the fields i.e. fields cant be empty.
 If you click over Order button without entering input in any of the field, error message will be diplayed.
-9. Fill all the input area and click on 'Order' button.
+9. Fill all the input areas and click on 'Order' button.
 
 Success message will be displayed.
